@@ -7,11 +7,15 @@ import (
 )
 
 type Config struct {
-	Host string `yaml:"host"`
+	Host     string `yaml:"host"`
+	LogLevel string `yaml:"logLevel"`
 }
 
 func NewConfig() *Config {
-	return &Config{Host: ":3000"}
+	return &Config{
+		Host:     ":3000",
+		LogLevel: "debug",
+	}
 }
 
 func (config *Config) ParseConfig(configPath string) error {
